@@ -23,7 +23,6 @@ public class SurfaceViewWithImg extends SurfaceView implements SurfaceHolder.Cal
   @Override
   protected void onDraw(Canvas canvas) {
     super.onDraw(canvas);
-    Log.e("@@@@","!!!!!!!!!!!");
     Bitmap _scratch = BitmapFactory.decodeResource(getResources(), R.drawable.sina);
     canvas.drawColor(Color.BLACK);
     canvas.drawBitmap(_scratch, 10, 10, null);
