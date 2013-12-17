@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -22,9 +23,11 @@ public class SurfaceViewWithImg extends SurfaceView implements SurfaceHolder.Cal
   @Override
   protected void onDraw(Canvas canvas) {
     super.onDraw(canvas);
+    Log.e("@@@@","!!!!!!!!!!!");
     Bitmap _scratch = BitmapFactory.decodeResource(getResources(), R.drawable.sina);
     canvas.drawColor(Color.BLACK);
     canvas.drawBitmap(_scratch, 10, 10, null);
+    _thread.setRunning(false);
   }
 
   public void surfaceChanged(SurfaceHolder arg0, int arg1, int arg2, int arg3) {}
