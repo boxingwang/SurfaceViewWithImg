@@ -12,7 +12,7 @@ public class MainActivity extends Activity {
     super.onCreate(savedInstanceState);
     FrameLayout frame = new FrameLayout(this);
     SurfaceViewWithImg bottomSurface = new SurfaceViewWithImg(R.drawable.sina,getApplicationContext());
-    SurfaceViewWithImg topSurface = new SurfaceViewWithImg(R.drawable.top,getApplicationContext());
+    SurfaceViewWithImg topSurface = new SurfaceViewWithImg(R.drawable.ic_launcher,getApplicationContext());
     frame.addView(bottomSurface);
     frame.addView(topSurface);
     
