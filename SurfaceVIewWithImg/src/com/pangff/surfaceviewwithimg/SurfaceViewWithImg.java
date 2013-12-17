@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.PorterDuff.Mode;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -15,18 +16,20 @@ import android.view.SurfaceView;
 public class SurfaceViewWithImg extends SurfaceView implements SurfaceHolder.Callback {
 
   LooperThread _looperThread;
-
-  public SurfaceViewWithImg(Context context) {
+  int resId;
+  public SurfaceViewWithImg(int resId,Context context) {
     super(context);
     getHolder().addCallback(this);
+    this.resId = resId;
     _looperThread = new LooperThread(getHolder(), this);
   }
 
   @Override
   protected void onDraw(Canvas canvas) {
     super.onDraw(canvas);
-    Bitmap _scratch = BitmapFactory.decodeResource(getResources(), R.drawable.sina);
-    canvas.drawColor(Color.BLACK);
+    canvas.drawColor(Color.TRANSPARENT,Mode.CLEAR);
+    Bitmap _scratch = BitmapFactory.decodeResource(getResources(),resId);
+    //canvas.drawColor(Color.BLACK);
     canvas.drawBitmap(_scratch, 10, 10, null);
   }
 
@@ -85,7 +88,6 @@ public class SurfaceViewWithImg extends SurfaceView implements SurfaceHolder.Cal
           }
         }
       };
-
       Looper.loop();
     }
   }
